@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sorteio de Números</h1>
+    <button onclick="sortear()">Sortear</button>
+    <p>resultado</p>
+    <input id = "min" type="number">
+    <input id = "max" type="number">
+    <script>
+        let minI = document.querySelector("#min")
+        let maxI = document.querySelector("#max")
+        let array = [];
+        function sortear(){
+            let min = minI.value.trim();
+            min = Math.ceil(min);
+            let max= maxI.value.trim();
+            max = Math.floor(max);
+            console.log(Math.floor(Math.random() * (max- min) + min));
+        }     
+    </script>
+    <h1> Lista de valores já sorteados</h1>
+</body>
+</html>

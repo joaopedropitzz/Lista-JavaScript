@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="number" id="peso" step="0.1" placeholder="Peso (kg)">
+    <input type="number" id="altura" step="0.01" placeholder="Altura (m)">
+    <button>Calcular</button>
+    <p id="resultadoIMC"></p>
+    <p id="classificacao"></p>
+    <img id="imgPerfil" alt="Resultado IMC" width="200">
+    
+    <script>
+        let nomeI = document.querySelector("#nome")
+        let pesoI = document.querySelector("#peso")
+        let alturaI = document.querySelector("#altura")
+        let buttonI = document.querySelector("button")
+        let imcI = document.querySelector("#resultadoIMC")
+        let classificacaoI = document.querySelector("#classificacao")
+        let imgI = document.querySelector("#imgPerfil")
+
+        buttonI.addEventListener("click", () => {
+            let nome = nomeI.value.trim();
+            let peso = parseFloat(pesoI.value);
+            let altura = parseFloat(alturaI.value);
+
+            if (nome === "") {
+                alert("Preencha o campo nome corretamente")
+                return;
+            }
+            if (isNaN(peso) || peso <= 0) {
+                alert("Preencha o campo peso corretamente")
+                return;
+            }
+            if (isNaN(altura) || altura <= 0) {
+                alert("Preencha o campo altura corretamente")
+                return;
+            }
+
+            let imc = peso / (altura * altura);
+            imc = imc.toFixed(2);
+            imcI.innerText = `${nome}, seu IMC é ${imc}`;
+
+            // Classificação e imagem
+            if (imc < 18.5) {
+                classificacaoI.innerText = "Classificação: Abaixo do peso";
+                imgI.src = "imgs/abaixopeso.png";
+            } else if (imc >= 18.5 && imc < 24.9) {
+                classificacaoI.innerText = "Classificação: Peso normal";
+                imgI.src = "imgs/normal.png";
+            } else if (imc >= 24.9 && imc < 29.9) {
+                classificacaoI.innerText = "Classificação: Sobrepeso";
+                imgI.src = "imgs/sobrepeso.png";
+            } else if (imc >= 29.9 && imc < 34.9) {
+                classificacaoI.innerText = "Classificação: Obesidade Grau I";
+                imgI.src = "imgs/obesidade1.png";
+            } else if (imc >= 34.9 && imc < 39.9) {
+                classificacaoI.innerText = "Classificação: Obesidade Grau II";
+                imgI.src = "imgs/obesidade2.png"; // Adicione essa imagem
+            } else {
+                classificacaoI.innerText = "Classificação: Obesidade Grau III";
+                imgI.src = "imgs/obesidade3.png"; // Adicione essa imagem
+            }
+        });
+    </script>
+</body>
+</html>
