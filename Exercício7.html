@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Insira um texto" id="palindrome-text">
+    <input type="button" value="palindrome" id = "check-palindrome">
+    <script>
+        const button = documnent.getElementById("check-palindrome")
+        button.addEventListener('onClick', ()=>{
+            const textElement = document.getElementById('palindrome-text')
+            const text = textElement.value
+            const isPalindrome = checkPalindrome(text)
+            if(isPalindrome){
+                alert('O texto $(text) é palíndromo')
+            }
+        })
+    </script>
+
+</body>
+</html>

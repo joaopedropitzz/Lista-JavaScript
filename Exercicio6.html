@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inputdata{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+        button{
+            border-radius: 1rem;
+            background-color: rgb(150, 172, 160);
+        }
+    </style>
+</head>
+<body>
+    <h1>Informe o intervalo de valores para os números primos</h1>
+    <div class = "inputdata">
+        <label for="menor">Valor Mínimo</label>
+        <input id = "menor "type="number">
+        <label for="maximo">Valor Máximo</label>
+        <input id = "maximo" type="number">
+        <button id = "descobrirPrimos" onclick="">Descobrir primos</button>
+        <p id="resultado"></p>
+    </div>
+        <script>
+            function ehPrimos(n){
+                let count = 0;
+                if(n<2){
+                    return false
+                }
+                for(let i = 0; i <= n; i++){
+                    if(n == i){
+                        count 
+                    }
+                }
+            }
+        </script>
+</body>
+</html>
